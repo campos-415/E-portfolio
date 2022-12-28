@@ -31,18 +31,31 @@ a {
     position: relative;
 }
 
+i:hover {
+    opacity: 0.7;
+}
+
 .link__hover-effect:after {
     content: "";
     position: absolute;
     height: 3px;
-    background-color: black;
     width: 0;
     bottom: -3px;
-    left: 0;
+    right: 0;
+    transition: all 300ms ease-in-out;
+}
+
+.link__hover-effect--black:after {
+    background-color: #000;
+}
+
+.link__hover-effect--white:after {
+    background-color: #fff;
 }
 
 .link__hover-effect:hover:after {
     width: 100%;
+    left: 0;
 }
 
 .flex {
@@ -68,7 +81,7 @@ a {
 }
 
 .text--purple {
-    color: #5F9EA0
+    color: #6671a0
 
 }
 
@@ -111,7 +124,7 @@ li {
 }    
 
 .nav__link--anchor--primary {
-    background-color: #5F9EA0
+    background-color: #6671a0
 ;
     padding: 8px 20px;
     border-radius: 50px;
@@ -120,12 +133,12 @@ li {
 }    
 
 .nav__link--anchor--primary:hover {
-    background-color: #5d3eff;
+    background-color: #777d99;
 }    
 
 .personal__logo {
     font-size: 24px;
-    color: #5F9EA0
+    color: #6671a0
 ;
     margin: 0 12px;
     font-weight: bold;
@@ -166,6 +179,19 @@ ABOUT ME
     overflow: hidden;
     box-shadow: 0 18px 32px rgba(0,0,0,0.20);
     margin-bottom: 28px;
+    animation: animate-profile-picture 650ms 200ms backwards;
+}
+
+@keyframes animate-profile-picture {
+    0% {
+        transform: scale(0);
+    }
+    80% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .about-me__picture {
@@ -177,17 +203,34 @@ ABOUT ME
 
 .about-me__info--title {
     margin-bottom: 16px;
+    animation: fade-up 650ms 400ms backwards;
 }
 
 .about-me__info--para {
     font-size: 20px;
     margin-bottom: 28px;
+    animation: fade-up 650ms 600ms backwards;
 }
 
 .about-me__link {
     font-size: 20px;
     color: #242424;
     padding: 0 16px;
+}
+
+.about-me__links {
+    animation: fade-up 650ms 800ms backwards;
+}
+
+@keyframes fade-up {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .about-me__img--container {
@@ -199,8 +242,34 @@ ABOUT ME
 
 .about-me__img {
     width: 100%;
+    animation: fade-in 1200ms 800ms backwards;
 }
 
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.wave {
+    display: inline-block;
+    animation: animate-wave 500ms infinite ease-in-out;
+}
+
+@keyframes animate-wave  {
+    0% {
+        transform: rotate(0);
+    }
+    50% {
+        transform: rotate(30deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
 
 /* TECH STACK */
 
@@ -249,6 +318,7 @@ ABOUT ME
 /* PROJECTS */
 
 .project {
+    margin: 0 20px;
     margin-bottom: 135px;
 }
 
@@ -418,39 +488,66 @@ footer {
   
   /* SMALL PHONES */
   
-  @media (max-width: 480px) {
-    .nav__link:not(:last-child) {
-      display: none;
+@media (max-width: 768px) {
+    nav {
+        height: 60px;
     }
-  
-    .project__wrapper {
-      border-radius: 0;
+
+    h1 {
+        font-size: 28px;
     }
-  
-    .project__description {
-      padding: 0;
-      left: 0;
-      width: 100%;
+
+    .about-me__info--para {
+        font-size: 16px;
     }
-  
+
+    .language {
+        width: calc(100%/2);
+    }
+
     .project__description--para {
-      display: none;
+        font-size: 14px;
     }
-  
+
+    .project__description {
+        left: 30px;
+        padding-right: 30px;
+    }
+}
+
+/* SMALL PHONES */
+
+@media (max-width:480px) {
+
+    .project__description {
+        padding: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .nav__link:not(:last-child) {
+        display: none;
+    }
+
+    .project__description--para {
+        display: none;
+    }
+
     .project__description--links {
-      display: flex;
-      justify-content: center;
+        display: flex;
+        justify-content: center;
     }
-  
+
     .project__description--title {
-      font-size: 32px;
-      line-height: 1;
-      text-align: center;
+        font-size: 32px;
+        line-height: 1;
+        text-align: center;
     }
-  
+
     .project__description--sub-title {
-      text-align: center;
-      margin: 12px 0;
+        text-align: center;
+        margin: 12px 0;
     }
-  }
+
+}
 
