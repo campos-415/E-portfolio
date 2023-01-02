@@ -357,16 +357,23 @@ ABOUT ME
     z-index: 2;
 }
 
+.project__link {
+    z-index: 3;
+}
+
 .project:hover .project__wrapper::before {
+    z-index: 4;
     opacity: 0.7;
 }
 
 .project:hover .project__img {
+    z-index: 4;
     transform: scale(1.07);
     filter: blur(5px);
 }
 
 .project:hover .project__description {
+    z-index: 4;
     opacity: 1;
     transform: translateY(-50%);
 
