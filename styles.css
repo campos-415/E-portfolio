@@ -303,6 +303,7 @@ ABOUT ME
 }
  
 .language__list {
+    justify-content: center;
     display: flex;
     width: 100%;
     flex-wrap: wrap;
